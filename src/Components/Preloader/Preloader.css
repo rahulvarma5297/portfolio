@@ -1,0 +1,74 @@
+/* Start pre-loader */
+
+.pre-loader {
+  position: absolute;
+  z-index: 10000000;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.pre-loader .logo a {
+  font-size: 50px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+  display: block;
+  transform: scaleY(0.9);
+  letter-spacing: 1px;
+}
+
+.pre-loader .logo span {
+  font-size: 20px;
+  font-weight: 200;
+  color: var(--text-dark-gray);
+  letter-spacing: 0.5px;
+  text-align: center;
+  position: relative;
+}
+
+.pre-loader .logo span::before {
+  content: "";
+  position: absolute;
+  background: transparent;
+  width: 60px;
+  height: 50px;
+  border-radius: 50%;
+  border-top: 2px solid var(--text-dark-gray);
+  border-right: 2px solid transparent;
+  border-left: 0px solid transparent;
+}
+
+.pre-loader .loader {
+  width: 135px;
+  height: 2px;
+  background: var(--main-color-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.pre-loader .loader:before {
+  content: "";
+  position: absolute;
+  background-color: var(--main-color);
+  height: 100%;
+  width: 45px;
+  animation: moving 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+@keyframes moving {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}

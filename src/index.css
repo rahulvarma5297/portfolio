@@ -1,0 +1,373 @@
+/************ Fonts *************/
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,700;1,400&display=swap");
+
+/************ Variables *************/
+
+:root {
+  --hue: 266;
+  --satueation: 70%;
+  --lightness: 55%;
+  --main-color: hsl(var(--hue), var(--satueation), var(--lightness));
+  --main-color-dcv: hsl(var(--hue) var(--satueation) var(--lightness) / 82%);
+  --main-color-light: hsl(var(--hue) var(--satueation) var(--lightness) / 31%);
+  --main-color-x-light: hsl(
+    var(--hue) var(--satueation) var(--lightness) / 12%
+  );
+  --gradient-hover-img: to bottom,
+    hsl(var(--hue) var(--satueation) var(--lightness) / 1%) 0,
+    hsl(var(--hue) var(--satueation) var(--lightness) / 25%) 25%,
+    hsl(var(--hue) var(--satueation) var(--lightness) / 80%) 75%,
+    hsl(var(--hue) var(--satueation) var(--lightness) / 100%) 100%;
+  /************ Text Colors *************/
+  --text-white: hsl(0, 0%, 100%);
+  --text-light-gray: hsl(0, 0%, 96%);
+  --text-x-dark-gray: hsl(0, 0%, 10%);
+  --text-dark-gray: hsl(0, 0%, 20%);
+  /************ bg Colors *************/
+  --body-bg-color: hsl(var(--hue), 60%, 94%);
+  --bg-color: hsl(var(--hue), 60%, 96%);
+  --bg-white: hsl(0, 0%, 100%);
+  /************ Border Colors *************/
+  --border-color: hsl(var(--hue), 48%, 80%);
+  /************ shadow Colors *************/
+  --shadow: 0 0 10px hsla(var(--hue), 57%, 63%, 0.3);
+  --focus-shadow: 0 0 10px hsla(var(--hue), 57%, 63%, 0.6);
+  /************ font size *************/
+  --fs-4xl: 50px;
+  --fs-3xl: 35px;
+  --fs-2xl: 26px;
+  --fs-1xl: 20px;
+  --fs-lg: 18px;
+  --fs-md: 16px;
+  --fs-sm: 14px;
+}
+
+/************ Override variables for dark theme *************/
+
+body.t-dark {
+  /************ Text Colors *************/
+  --text-x-dark-gray: hsl(0, 0%, 94%);
+  --text-dark-gray: hsl(0, 0%, 84%);
+  /************ bg Colors *************/
+  --body-bg-color: hsl(var(--hue), 20%, 10%);
+  --bg-color: hsl(var(--hue), 13%, 17%);
+  /************ Border Colors *************/
+  --border-color: hsl(var(--hue), 15%, 30%);
+  /************ shadow Colors *************/
+  --shadow: 0 0 10px hsla(var(--hue), 19%, 7%, 0.9);
+}
+
+/************ base *************/
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
+}
+
+.section {
+  padding: 2rem 9%;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 300;
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  color: var(--text-dark-gray);
+  background-color: var(--body-bg-color);
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-x-dark-gray);
+  line-height: 1.3;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+::selection {
+  color: var(--text-white);
+  background: var(--main-color);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--body-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+
+/************ Container *************/
+
+.container {
+  max-width: 1170px;
+  margin: auto;
+  padding: 15px;
+}
+
+.container canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/************ Start Section Grid *************/
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+
+/************ End Section Grid *************/
+
+/************ Start go Down *************/
+
+.go-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  color: var(--main-color);
+  transform: translateX(-50%);
+  font-size: 25px;
+  transition: all 0.5s ease;
+  z-index: 3;
+}
+
+.go-down i {
+  animation: bouncing 5s ease infinite;
+}
+
+@keyframes bouncing {
+  0%,
+  10%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40%,
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+/************ End go Down *************/
+
+
+/************  Start Section Responsive *************/
+
+@media (max-width: 1199px) {
+  .about-img .box-1 {
+    top: 100%;
+    left: 50%;
+  }
+}
+
+@media (max-width: 991px) {
+  /************ Variables *************/
+  :root {
+    --fs-4xl: 42px;
+    --fs-3xl: 31px;
+    --fs-2xl: 24px;
+  }
+  /************ Home *************/
+  .home-img img {
+    max-width: 320px;
+  }
+  .home-img .circle-wrap .circle {
+    height: 200px;
+    width: 200px;
+  }
+
+}
+
+@media (max-width: 767px) {
+  /************ Variables *************/
+  :root {
+    --fs-4xl: 35px;
+    --fs-3xl: 26px;
+    --fs-2xl: 22px;
+    --fs-1xl: 18px;
+  }
+  /************ Header *************/
+  .nav-toggler {
+    /* display: block; */
+    height: 34px;
+    width: 40px;
+    border: none;
+    /* z-index: 1; */
+    /* background: transparent; */
+    cursor: pointer;
+  }
+  .nav-toggler span {
+    display: block;
+    height: 2px;
+    width: 24px;
+    background: var(--main-color);
+    margin: auto;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+  .nav-toggler.active span {
+    background-color: transparent;
+  }
+  .nav-toggler span:before,
+  .nav-toggler span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    transition: transform 0.3s ease;
+  }
+  .nav-toggler span:before {
+    transform: translateY(-7px);
+  }
+  .nav-toggler.active span:before {
+    transform: rotate(45deg);
+  }
+  .nav-toggler span:after {
+    transform: translateY(7px);
+  }
+  .nav-toggler.active span:after {
+    transform: rotate(-45deg);
+  }
+  .nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 260px;
+    background-color: var(--bg-color);
+    padding: 60px 30px 30px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+  }
+  .nav.open {
+    transform: translateX(0);
+    box-shadow: var(--shadow);
+  }
+  .nav li {
+    display: block;
+    margin: 0;
+  }
+  .nav a {
+    font-size: var(--fs-1xl);
+  }
+  .nav li + li {
+    border-top: 1px solid var(--border-color);
+  }
+  .nav li {
+    display: flex;
+    justify-content: center;
+  }
+  .nav a::before {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    bottom: 5px;
+    left: 0;
+    width: 0px;
+    height: 5px;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+  .nav a:hover::before {
+    opacity: 1;
+    left: 50%;
+    width: 5px;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    color: var(--main-color);
+  }
+  /************ Home *************/
+  .home-text,
+  .home-img {
+    grid-column: span 12;
+  }
+  .home-img {
+    order: -1;
+    margin: 20px 0;
+  }
+  .home-img img {
+    margin: auto;
+  }
+  .home-img .circle-wrap .circle {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 575px) {
+  /************ Grid *************/
+  .d-grid {
+    gap: 20px;
+  }
+  /************ Home *************/
+  .home-img img {
+    max-width: 220px;
+  }
+  .home-text h1 {
+    font-size: var(--fs-3xl);
+  }
+}

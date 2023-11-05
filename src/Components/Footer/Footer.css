@@ -1,0 +1,46 @@
+.footer {
+  background-color: rgb(10, 4, 22);
+  color: white;
+  padding: 10px;
+  /* position: static; */
+  /* bottom: 0; */
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.footer-name {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-social-icons {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-copywright {
+  flex: 1;
+  text-align: right;
+}
+
+.footer-name h3 {
+  margin: 0;
+}
+
+.footer-social-icons a {
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.footer-copywright p {
+  margin: 0;
+}

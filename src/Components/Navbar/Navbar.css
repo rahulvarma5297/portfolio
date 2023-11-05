@@ -1,0 +1,122 @@
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  .header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--bg-body);
+    box-shadow: var(--shadow);
+    z-index: -1;
+    transform: translateY(calc(-100% - 10px));
+    transition: transform 0.5s ease;
+  }
+  
+  .header.bg-reveal::before {
+    transform: translateY(0);
+    backdrop-filter: blur(100px);
+  }
+  
+  .header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header .logo a {
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+    display: block;
+    transform: scaleY(0.9);
+    letter-spacing: 2px;
+  }
+  
+  .header .logo span {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-dark-gray);
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .header .logo span::before {
+    content: "";
+    position: absolute;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-top: 2px solid var(--text-dark-gray);
+    border-right: 2px solid transparent;
+    border-left: 0px solid transparent;
+  }
+  
+  .nav li {
+    display: inline-block;
+    margin-left: 35px;
+  }
+  
+  .nav a {
+    text-transform: capitalize;
+    font-size: var(--fs-md);
+    color: var(--text-x-dark-gray);
+    font-weight: 400;
+    display: block;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  .nav a::before {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    bottom: 6px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+  
+  .nav a:hover::before {
+    opacity: 1;
+    left: 50%;
+    width: 50%;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    color: var(--main-color);
+  }
+  
+  .nav a.active::after {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    bottom: 6px;
+    left: 50%;
+    width: 50%;
+    height: 3px;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+  }
+  
+  .nav li a.active,
+  .nav a:hover {
+    color: var(--main-color);
+  }
+  
+  .nav-toggler {
+    display: none;
+  }
